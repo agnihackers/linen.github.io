@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINEN TRININE | Website Under Maintenance</title>
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pure: #000000;
+            --card-bg: #0a0a0a;
+            --accent-silver: #d1d1d1;
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --glass: rgba(255, 255, 255, 0.03);
+            --wa-green: #25d366;
+            --amber-gold: #e5a93c;
+        }
+
+
+        /* Anti-Copy Security */
+        * {
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-pure);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Dynamic Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
+            z-index: -1;
+        }
+
+        .main-wrapper {
+            width: 95%;
+            max-width: 500px;
+            padding: 20px 0;
+            animation: fadeIn 1.2s ease-out;
+            z-index: 1;
+        }
+
+        .brand-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Maintenance Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.65rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-silver);
+            margin-top: 20px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: var(--amber-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--amber-gold);
+            animation: dot-pulse 1.5s infinite;
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem); /* Responsive Font */
+            letter-spacing: clamp(6px, 2vw, 12px);
+            text-transform: uppercase;
+            color: var(--text-main);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: inline-block;
+            padding-bottom: 10px;
+            margin: 0;
+        }
+
+        .maintenance-tag {
+            font-size: 0.75rem;
+            letter-spacing: 5px;
+            color: var(--accent-silver);
+            text-transform: uppercase;
+            margin-top: 15px;
+            font-weight: 600;
+            opacity: 0.9;
+        }
+
+        .sub-tag {
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            opacity: 0.4;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        /* Responsive Layout Support */
+        .enquiry-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: clamp(20px, 5vw, 40px);
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .enquiry-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-silver), transparent);
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+            color: var(--accent-silver);
+        }
+
+        .form-group { margin-bottom: 15px; }
+
+        label {
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: var(--glass);
+            border: 1px solid #222;
+            padding: 12px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            -webkit-user-select: text;
+            user-select: text;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--accent-silver);
+            background: rgba(255,255,255,0.06);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: white;
+            color: black;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-silver);
+            letter-spacing: 4px;
+        }
+
+        /* Floating WhatsApp Icon and Animation */
+        .wa-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--wa-green);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
+            animation: wa-pulse 2s infinite;
+        }
+
+        .wa-float svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        @keyframes wa-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments for very small screens */
+        @media (max-width: 360px) {
+            .brand-name { font-size: 1.5rem; }
+            .enquiry-card { padding: 15px; }
+            .wa-float { width: 50px; height: 50px; bottom: 15px; right: 15px; }
+            .wa-float svg { width: 25px; height: 25px; }
+        }
+
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="bg-gradient"></div>
+
+    <div class="main-wrapper">
+        <div class="brand-section">
+            <h1 class="brand-name">LINEN TRININE</h1>
+            <br>
+            <!-- Maintenance Badge -->
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                WEBSITE UNDER MAINTENANCE
+            </div>
+        </div>
+
+        <div class="enquiry-card">
+            <h2>DIRECT ENQUIRY</h2>
+            
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" id="cust_name" placeholder="Name">
+            </div>
+            
+            <div class="form-group">
+                <label>Phone Number</label>
+                <input type="tel" id="cust_phone" placeholder="Contact Number">
+            </div>
+
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" id="cust_email" placeholder="Email (Optional)">
+            </div>
+
+            <div class="form-group">
+                <label>Your Message</label>
+                <textarea id="cust_message" rows="3" placeholder="Requirement details..."></textarea>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="sendToWhatsapp()">Send via WhatsApp</button>
+        </div>
+    </div>
+
+    <!-- Animated Floating WhatsApp Support -->
+    <a href="https://wa.me/919633727999" class="wa-float" target="_blank" aria-label="WhatsApp Support">
+        <svg viewBox="0 0 448 512">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.4-11.3 2.6-2.6 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.2 1.9-3.7 1-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+
+    <!-- SECURITY & WHATSAPP SCRIPT -->
+    <script>
+        function sendToWhatsapp() {
+            let name = document.getElementById('cust_name').value.trim();
+            let phone = document.getElementById('cust_phone').value.trim();
+            let email = document.getElementById('cust_email').value.trim();
+            let message = document.getElementById('cust_message').value.trim();
+            
+            if(name == "" || phone == "" || message == "") {
+                alert("Please fill in Name, Phone and Message.");
+                return;
+            }
+
+            let whatsappNumber = "919633727999";
+            
+            let finalMessage = "*ENQUIRY FROM LINEN TRININE WEBSITE*%0A%0A" + 
+                               "*Name:* " + encodeURIComponent(name) + "%0A" + 
+                               "*Phone:* " + encodeURIComponent(phone) + "%0A" + 
+                               "*Email:* " + encodeURIComponent(email) + "%0A" + 
+                               "*Message:* " + encodeURIComponent(message);
+
+            let url = "https://wa.me/" + whatsappNumber + "?text=" + finalMessage;
+            window.open(url, '_blank').focus();
+        }
+
+        // SECURITY: Disable Right Click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // SECURITY: Disable Inspect Shortcuts
+        document.onkeydown = function(e) {
+            if(event.keyCode == 123) return false; 
+            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) return false;
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+        }
+
+        // SECURITY: Detect DevTools
+        setInterval(function() {
+            if ((window.outerHeight - window.innerHeight) > 200 || (window.outerWidth - window.innerWidth) > 200) {
+                document.body.innerHTML = "<div style='color:white; text-align:center; margin-top:20%;'>Security Protocol Active. Page Refresh Required.</div>";
+                location.reload();
+            }
+        }, 1500);
+    </script>
+
+</body>
+</html>
