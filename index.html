@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LINEN TRININE | Opening Soon</title>
+    <!-- Premium Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-pure: #000000;
+            --card-bg: #0a0a0a;
+            --accent-silver: #d1d1d1;
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --glass: rgba(255, 255, 255, 0.03);
+            --wa-green: #25d366;
+            --amber-gold: #e5a93c;
+        }
+
+        /* Anti-Copy Security */
+        * {
+            box-sizing: border-box;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-pure);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Dynamic Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
+            z-index: -1;
+        }
+
+        .main-wrapper {
+            width: 95%;
+            max-width: 600px;
+            padding: 40px 0;
+            animation: fadeIn 1.2s ease-out;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .brand-section {
+            margin-bottom: 40px;
+        }
+
+        .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.8rem, 8vw, 3rem); /* Responsive Font */
+            letter-spacing: clamp(6px, 2vw, 15px);
+            text-transform: uppercase;
+            color: var(--text-main);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: inline-block;
+            padding-bottom: 10px;
+            margin: 0;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.65rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-silver);
+            margin-top: 25px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: var(--amber-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--amber-gold);
+            animation: dot-pulse 1.5s infinite;
+        }
+
+        /* Announcement Card */
+        .announcement-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: clamp(30px, 8vw, 60px) clamp(20px, 5vw, 40px);
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .announcement-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-silver), transparent);
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.1rem, 4vw, 1.5rem);
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+            color: var(--text-main);
+            text-transform: uppercase;
+        }
+
+        .short-note {
+            font-size: 0.85rem;
+            line-height: 1.8;
+            color: var(--text-dim);
+            letter-spacing: 0.5px;
+            max-width: 480px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Floating WhatsApp Icon and Animation */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--wa-green);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            z-index: 1000;
+            text-decoration: none;
+            animation: wa-pulse 2s infinite;
+        }
+
+        .wa-float svg {
+            width: 32px;
+            height: 32px;
+            fill: white;
+        }
+
+        @keyframes wa-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @keyframes dot-pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .wa-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
+            .wa-float svg { width: 28px; height: 28px; }
+        }
+
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="bg-gradient"></div>
+
+    <div class="main-wrapper">
+        <div class="brand-section">
+            <h1 class="brand-name">LINEN TRININE</h1>
+            <br>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                Secret Reveal coming soon
+            </div>
+        </div>
+
+        <div class="announcement-card">
+            <h2>Offline Store & Website<br>Opening Soon</h2>
+            <p class="short-note">
+                We have a special surprise coming soon for our audience, both online and offline. To stay updated with all the latest brand announcements, simply follow us on our social media channels.
+            </p>
+        </div>
+
+        <!-- Updated Copyright Section -->
+        <p style="font-size: 0.6rem; letter-spacing: 4px; color: #333; margin-top: 60px; text-transform: uppercase;">
+            © 2026 LINEN TRININE LLP | Curated Luxury
+        </p>
+    </div>
+
+    <!-- Animated Floating WhatsApp Support -->
+    <a href="https://wa.me/919633727999" class="wa-float" target="_blank" aria-label="WhatsApp Support">
+        <svg viewBox="0 0 448 512">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-5.5-2.8-23.2-8.5-44.2-27.1-16.4-14.6-27.4-32.7-30.6-38.2-3.2-5.6-.3-8.6 2.4-11.3 2.6-2.6 5.5-6.5 8.3-9.7 2.8-3.3 3.7-5.5 5.5-9.2 1.9-3.7 1-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 13.2 5.8 23.5 9.2 31.6 11.8 13.3 4.2 25.4 3.6 35 2.2 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+    </a>
+
+    <!-- SECURITY SCRIPTS -->
+    <script>
+        // Disable Right Click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Disable Inspect Shortcuts
+        document.onkeydown = function(e) {
+            if(event.keyCode == 123) return false; 
+            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) return false;
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+        }
+
+        // Detect DevTools Opening
+        setInterval(function() {
+            if ((window.outerHeight - window.innerHeight) > 200 || (window.outerWidth - window.innerWidth) > 200) {
+                document.body.innerHTML = "<div style='color:white; text-align:center; margin-top:20%; font-family:Montserrat;'>Security Protocol Active. Page Refresh Required.</div>";
+                location.reload();
+            }
+        }, 1500);
+    </script>
+
+</body>
+</html>
