@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Force HTTPS + WWW
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} !^www\.linentrinine\.com$ [NC]
+RewriteRule ^ https://www.linentrinine.com%{REQUEST_URI} [L,R=301]
+
+# SPA Routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [L]
+
+# Disable directory listing
+Options -Indexes
