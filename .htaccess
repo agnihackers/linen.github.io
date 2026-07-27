@@ -12,10 +12,10 @@ RewriteRule ^(.*)$ https://www.linentrinine.com/$1 [L,R=301]
 # Front Controller (Laravel / CodeIgniter / Custom PHP)
 # ----------------------------
 RewriteBase /
-RewriteRule ^index\.html$ - [L]
+RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+RewriteRule . /index.php [L]
 
 # ----------------------------
 # Gzip Compression (Modern)
